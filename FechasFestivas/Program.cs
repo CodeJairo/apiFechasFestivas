@@ -28,6 +28,16 @@ namespace FechasFestivas
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("nuevaPolitica", app =>
+                {
+                    app.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -41,6 +51,7 @@ namespace FechasFestivas
 
             app.UseAuthorization();
 
+            app.UseCors("nuevaPolitica");
 
             app.MapControllers();
 
