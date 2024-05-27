@@ -1,0 +1,6 @@
+@FechasFestivas_HostAddress = http://localhost:5249
+
+GET {{FechasFestivas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
